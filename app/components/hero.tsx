@@ -15,30 +15,38 @@ export function Hero() {
     { icon: Lightbulb, value: "100+", label: "Innovation Projects" },
   ];
   
-  const CarouselItems = {
-    title: "where Innovation ",
-    subtitle: "meets Community",
-    image: "",
+  const CarouselItems = [
+    {
+    title: "Where Innovation ",
+    subtitle: "Meets Community",
+    image: "https://drive.google.com/file/d/17HBjrC_5LrUSI45eUuF9YwDxOHZwHYqt/view?usp=sharing",
     content: " Join the leading tech hub fostering innovation, collaboration, and growth.Connect with like-minded entrepreneurs, developers, and visionaries shaping the future."
-
-  }
+  },
+     
   
-const array = [
-   "i", "am", "going", "to"
 ];
-console.log("this is a",  {CarouselItems});
+
   return (
+    
     <section id="home" className="min-h-screen flex items-center bg-gradient-to-br from-background via-background to-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center max-w-4xl mx-auto">
+       {CarouselItems.map((items, index) => (
+       <Carousel  opts={{
+    align: "start",
+    loop: true,
+    
+  }} key={index} className="w-full" style={{backgroundImage: `url('${items.image}')`}}>
+        <CarouselContent>
+        
+          <CarouselItem key={index}>
+           <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance mb-6">
-            Where Innovation
-            <span className="text-primary block">Meets Community</span>
+            {items.title}
+            <span className="text-primary block">{items.subtitle}</span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 text-balance">
-            Join the leading tech hub fostering innovation, collaboration, and growth. 
-            Connect with like-minded entrepreneurs, developers, and visionaries shaping the future.
+            {items.content}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -63,7 +71,16 @@ console.log("this is a",  {CarouselItems});
             ))}
           </div>
         </div>
+          </CarouselItem>
+       
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+     ))}
+       
       </div>
     </section>
+    
   );
 }

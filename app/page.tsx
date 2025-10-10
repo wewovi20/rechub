@@ -1,11 +1,21 @@
 "use client"
 import {Header} from "./components/header";
 import {Hero} from "./components/hero";
+import {About} from "./components/about";
+import { Programs } from "./components/programs";
+import { Community } from "./components/community";
+import { Events } from "./components/events";
+import { Partners } from "./components/partners";
 export default function Home() {
   return (
-    <div className="font-sans items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div>
     <Header/>
     <Hero/>
+    <About/>
+    <Programs/>
+    <Community/>
+    <Events/>
+    <Partners/>
     </div>
   );
 }
