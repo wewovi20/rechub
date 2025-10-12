@@ -6,6 +6,8 @@ import { Programs } from "./components/programs";
 import { Community } from "./components/community";
 import { Events } from "./components/events";
 import { Partners } from "./components/partners";
+import { Contact } from "./components/contact";
+import { Footer } from "./components/footer";
 export default function Home() {
   return (
     <div>
@@ -16,6 +18,8 @@ export default function Home() {
     <Community/>
     <Events/>
     <Partners/>
+    <Contact/>
+    <Footer/>
     </div>
   );
 }
