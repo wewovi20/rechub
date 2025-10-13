@@ -8,7 +8,7 @@ export function About() {
     {
       icon: Target,
       title: "Innovation Focus",
-      description: "We're dedicated to fostering breakthrough technologies and disruptive solutions that shape tomorrow's world.",
+      description: "We&apos;re dedicated to fostering breakthrough technologies and disruptive solutions that shape tomorrow&apos;s world.",
       color: "from-blue-500 to-cyan-500",
       stats: "500+ Innovations"
     },

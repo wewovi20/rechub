@@ -225,7 +225,7 @@ export function Partners() {
             </div>
             <div className="text-center">
               <h3 className="text-3xl md:text-4xl font-bold mb-2">Investor Network</h3>
-              <p className="text-muted-foreground">Top-tier investors backing our community innovations</p>
+              <p className="text-muted-foreground">Top-tier investors backing our community&apos;s innovations</p>
             </div>
           </div>
 
