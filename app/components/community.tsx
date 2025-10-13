@@ -11,7 +11,7 @@ export function Community() {
       role: "Founder, AI Startup",
       content: "The mentorship and network I gained here was invaluable. Within 6 months, we raised our Series A and scaled to 50+ employees.",
       initials: "SA",
-      avatar: "/avatars/sarah-chen.jpg",
+      avatar: "",
       rating: 5,
       company: "TechInnovate AI"
     },
@@ -20,16 +20,16 @@ export function Community() {
       role: "Full-Stack Developer",
       content: "The bootcamp completely transformed my career. I went from zero coding experience to landing a senior developer role at a top tech company.",
       initials: "MA",
-      avatar: "/avatars/marcus-rodriguez.jpg",
+      avatar: "",
       rating: 5,
       company: "Google"
     },
     {
       name: "Vincent Kaba",
       role: "Product Manager",
-      content: "The community here is incredible. The connections I've made have led to multiple partnerships and collaborative projects.",
+      content: "The community here is incredible. The connections I&apos;ve made have led to multiple partnerships and collaborative projects.",
       initials: "VK",
-      avatar: "/avatars/jennifer-kim.jpg",
+      avatar: "",
       rating: 5,
       company: "Meta"
     }
