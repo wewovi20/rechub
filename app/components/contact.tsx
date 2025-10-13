@@ -10,22 +10,22 @@ export function Contact() {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Visit Our Campus",
-      details: ["123 Innovation Drive", "Tech District, Silicon Valley", "CA 94025, USA"],
+      title: "Visit Our Office",
+      details: ["BAC Office, off paga road, Kasena Nankana District"],
       color: "from-blue-500 to-cyan-500",
       action: "Get Directions"
     },
     {
       icon: Phone,
       title: "Call Us Directly",
-      details: ["+1 (555) 123-4567", "+1 (555) 123-4568"],
+      details: ["+233 (20) 788 5790" , "+233 (54) 025-2576"],
       color: "from-green-500 to-emerald-500",
       action: "Call Now"
     },
     {
       icon: Mail,
       title: "Email Our Team",
-      details: ["hello@techhub.com", "partnerships@techhub.com"],
+      details: ["info@rechub.com", "partnerships@rechub.com"],
       color: "from-purple-500 to-pink-500",
       action: "Send Email"
     },
@@ -214,7 +214,7 @@ export function Contact() {
                       <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <MapPin className="size-8 text-white" />
                       </div>
-                      <h3 className="text-2xl font-bold mb-3 text-gray-900">Visit Our Innovation Campus</h3>
+                      <h3 className="text-2xl font-bold mb-3 text-gray-900">Visit Our Office</h3>
                       <p className="text-muted-foreground mb-6 max-w-md">
                         Experience our state-of-the-art facilities and collaborative workspaces
                       </p>

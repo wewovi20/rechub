@@ -65,21 +65,21 @@ export function Partners() {
 
   const investorPartners = [
     { 
-      name: "Sequoia Capital", 
-      type: "Venture Capital",
+      name: "Naara Rural Bank", 
+      type: "Bank",
       logo: "/investors/sequoia.svg",
       focus: "Early & Growth Stage",
       investments: "150+"
     },
     { 
-      name: "Andreessen Horowitz", 
-      type: "Growth Equity",
+      name: "Teachers Co-Operative Credit Union", 
+      type: "Credit Union",
       logo: "/investors/a16z.svg",
       focus: "Technology Companies",
       investments: "200+"
     },
     { 
-      name: "Y Combinator", 
+      name: "GCB", 
       type: "Accelerator",
       logo: "/investors/yc.svg",
       focus: "Early Stage Startups",
@@ -88,12 +88,10 @@ export function Partners() {
   ];
 
   const universities = [
-    { name: "Stanford University", logo: "/universities/stanford.svg", programs: "25+" },
-    { name: "MIT", logo: "/universities/mit.svg", programs: "18+" },
-    { name: "UC Berkeley", logo: "/universities/berkeley.svg", programs: "22+" },
-    { name: "Carnegie Mellon", logo: "/universities/cmu.svg", programs: "15+" },
-    { name: "Harvard Business School", logo: "/universities/harvard.svg", programs: "12+" },
-    { name: "Wharton School", logo: "/universities/wharton.svg", programs: "10+" }
+    { name: "CKT Uni. Applied Sciences", logo: "/universities/stanford.svg", programs: "25+" },
+    { name: "St. Bosco Training College", logo: "/universities/mit.svg", programs: "18+" },
+    { name: "Community Nursing College", logo: "/universities/berkeley.svg", programs: "22+" },
+    
   ];
 
   const partnershipBenefits = [

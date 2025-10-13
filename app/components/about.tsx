@@ -31,13 +31,13 @@ export function About() {
       title: "Global Impact",
       description: "Creating solutions that transcend borders and address challenges on a worldwide scale.",
       color: "from-purple-500 to-pink-500",
-      stats: "50+ Countries"
+      stats: "50+ Communities"
     },
   ];
 
   const achievements = [
     { icon: Trophy, number: "5+", label: "Years of Excellence", suffix: "" },
-    { icon: TrendingUp, number: "$50M+", label: "Funding Raised", suffix: "" },
+    { icon: TrendingUp, number: "GHC50M+", label: "Funding Raised", suffix: "" },
     { icon: Users, number: "200+", label: "Expert Mentors", suffix: "" },
     { icon: Award, number: "95%", label: "Success Rate", suffix: "" },
   ];
@@ -63,7 +63,7 @@ export function About() {
             of Tech Leaders
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto text-balance leading-relaxed">
-            Our tech hub is more than just a workspace—it's a thriving ecosystem where 
+            RecHub is more than just a workspace, it's a thriving ecosystem where 
             innovation flourishes, partnerships form, and groundbreaking ideas become reality.
           </p>
         </div>

@@ -42,7 +42,7 @@ export function Footer() {
   const stats = [
     { number: "5,000+", label: "Community Members" },
     { number: "150+", label: "Startups Launched" },
-    { number: "$50M+", label: "Funding Raised" },
+    { number: "GHC50M+", label: "Funding Raised" },
     { number: "95%", label: "Success Rate" }
   ];
 
@@ -75,7 +75,7 @@ export function Footer() {
                   <img src="https://res.cloudinary.com/dykjpcitp/image/upload/v1760261089/rechub/IMG_0979_lkrqad-removebg-preview_gxsuwt.png" alt="RecHub Logo" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">TechHub</h2>
+                  <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">RecHub</h2>
                   <Badge variant="outline" className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs mt-1">
                     Innovation Since 2024
                   </Badge>

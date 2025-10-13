@@ -7,28 +7,28 @@ import { Badge } from "@/components/ui/badge";
 export function Community() {
   const testimonials = [
     {
-      name: "Sarah Chen",
+      name: "Sarah Akiwebe",
       role: "Founder, AI Startup",
       content: "The mentorship and network I gained here was invaluable. Within 6 months, we raised our Series A and scaled to 50+ employees.",
-      initials: "SC",
+      initials: "SA",
       avatar: "/avatars/sarah-chen.jpg",
       rating: 5,
       company: "TechInnovate AI"
     },
     {
-      name: "Marcus Rodriguez",
+      name: "Mary Addah",
       role: "Full-Stack Developer",
       content: "The bootcamp completely transformed my career. I went from zero coding experience to landing a senior developer role at a top tech company.",
-      initials: "MR",
+      initials: "MA",
       avatar: "/avatars/marcus-rodriguez.jpg",
       rating: 5,
       company: "Google"
     },
     {
-      name: "Jennifer Kim",
+      name: "Vincent Kaba",
       role: "Product Manager",
       content: "The community here is incredible. The connections I've made have led to multiple partnerships and collaborative projects.",
-      initials: "JK",
+      initials: "VK",
       avatar: "/avatars/jennifer-kim.jpg",
       rating: 5,
       company: "Meta"
@@ -73,7 +73,7 @@ export function Community() {
   const socialLinks = [
     { 
       icon: MessageCircle, 
-      label: "Discord", 
+      label: "Instagram", 
       href: "#", 
       members: "2.5K+",
       color: "from-purple-500 to-indigo-500",
@@ -81,7 +81,7 @@ export function Community() {
     },
     { 
       icon: Github, 
-      label: "GitHub", 
+      label: "Facebook", 
       href: "#", 
       members: "1.8K+",
       color: "from-gray-700 to-gray-900",
@@ -97,7 +97,7 @@ export function Community() {
     },
     { 
       icon: Twitter, 
-      label: "Twitter", 
+      label: "X", 
       href: "#", 
       members: "4.1K+",
       color: "from-sky-400 to-blue-500",

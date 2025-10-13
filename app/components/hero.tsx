@@ -20,7 +20,7 @@ export function Hero() {
 
   const stats = [
     { icon: Users, value: "2,500+", label: "Community Members", trend: "+15% this month" },
-    { icon: Rocket, value: "150+", label: "Startups Launched", trend: "$50M+ raised" },
+    { icon: Rocket, value: "150+", label: "Startups Launched", trend: "GHC50M+ raised" },
     { icon: Lightbulb, value: "500+", label: "Innovation Projects", trend: "94% success rate" },
   ];
   
