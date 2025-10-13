@@ -197,7 +197,7 @@ export function Community() {
                     </div>
                     
                     <p className="text-muted-foreground mb-6 text-lg leading-relaxed italic">
-                      "{testimonial.content}"
+                      {testimonial.content}
                     </p>
                     
                     <div className="flex items-center gap-4">

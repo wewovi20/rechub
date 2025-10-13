@@ -65,7 +65,7 @@ export function Contact() {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance leading-relaxed">
             Ready to join our community or have questions about our programs? 
-            We'd love to hear from you and help you get started on your journey.
+            We would love to hear from you and help you get started on your journey.
           </p>
         </div>
 

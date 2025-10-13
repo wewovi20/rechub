@@ -63,7 +63,7 @@ export function About() {
             of Tech Leaders
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto text-balance leading-relaxed">
-            RecHub is more than just a workspace, it's a thriving ecosystem where 
+            RecHub is more than just a workspace, its a thriving ecosystem where 
             innovation flourishes, partnerships form, and groundbreaking ideas become reality.
           </p>
         </div>
