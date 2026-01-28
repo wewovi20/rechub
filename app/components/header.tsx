@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sparkles, ArrowRight, Users, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
