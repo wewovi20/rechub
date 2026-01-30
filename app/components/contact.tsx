@@ -281,10 +281,7 @@ console.log(res.statusText)
                       <p className="text-muted-foreground mb-6 max-w-md">
                         Experience our state-of-the-art facilities and collaborative workspaces
                       </p>
-                      <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg">
-                        <Building className="size-4 mr-2" />
-                        Book a Campus Tour
-                      </Button>
+                     
                     </div>
                   </div>
                   
@@ -328,16 +325,10 @@ console.log(res.statusText)
                   className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 h-14 px-8 group font-semibold"
                 >
                   <Users className="size-5 mr-2" />
-                  Start Your Journey
-                  <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
+                  Start Your Journey by sending us a message
+                
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="h-14 px-8 border-2 border-white text-white hover:bg-white hover:text-gray-900 backdrop-blur-sm transition-all duration-300 font-semibold"
-                >
-                  Book a Tour
-                </Button>
+                
               </div>
             </div>
           </div>

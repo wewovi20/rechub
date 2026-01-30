@@ -1,9 +1,13 @@
 import { Rocket, Code, Users, Briefcase, ArrowRight, Star, Clock, Users2, Building } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ApplicationModal } from "./application-modal";
 
 export function Programs() {
+  const [applicationModalOpen, setApplicationModalOpen] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState('');
   const programs = [
     {
       icon: Rocket,
@@ -161,7 +165,13 @@ export function Programs() {
                   ))}
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-gray-900 to-gray-700 hover:from-gray-800 hover:to-gray-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-12 text-base font-semibold group/btn">
+                <Button
+                  className="w-full bg-gradient-to-r from-gray-900 to-gray-700 hover:from-gray-800 hover:to-gray-600 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 h-12 text-base font-semibold group/btn"
+                  onClick={() => {
+                    setSelectedProgram(program.title.toLowerCase().replace(' ', '-'));
+                    setApplicationModalOpen(true);
+                  }}
+                >
                   Explore Program
                   <ArrowRight className="ml-2 size-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
                 </Button>
@@ -193,6 +203,7 @@ export function Programs() {
                 <Button 
                   size="lg" 
                   className="bg-white text-gray-900 hover:bg-gray-100 h-14 px-8 text-base font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-1"
+                  onClick={() => setApplicationModalOpen(true)}
                 >
                   Apply Now
                 </Button>
@@ -211,6 +222,12 @@ export function Programs() {
           </div>
         </div>
       </div>
+
+      <ApplicationModal
+        isOpen={applicationModalOpen}
+        onClose={() => setApplicationModalOpen(false)}
+        programName={selectedProgram}
+      />
     </section>
   );
 }

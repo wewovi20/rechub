@@ -1,3 +1,5 @@
+'use client';
+import React, { useState } from "react";
 import { MessageCircle, Github, Linkedin, Twitter, Users, Calendar, BookOpen, Star, Zap, TrendingUp, ArrowRight, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,6 +7,31 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 
 export function Community() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubscribe(e: React.FormEvent) {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    const res = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    if (res.ok) {
+      setSuccess(true);
+      setEmail("");
+    } else {
+      setError("Unable to subscribe. Try again.");
+    }
+
+    setLoading(false);
+  }
   const testimonials = [
     {
       name: "Sarah Akiwebe",
@@ -294,18 +321,29 @@ export function Community() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+               <form onSubmit={handleSubscribe} className="flex gap-3">
               <input
                 type="email"
                 placeholder="Enter your email address"
                 className="flex-1 px-6 py-4 rounded-xl border border-gray-600 bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 h-14 px-8"
-              >
-                Subscribe
-                <TrendingUp className="ml-2 size-5" />
-              </Button>
+            
+               <Button type="submit" disabled={loading} className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 h-14 px-8">
+                  {loading ? "Joining..." : "Subscribe"}
+                  <TrendingUp className="ml-2 size-5" />
+                </Button>
+            </form>
+                {success && (
+                  <p className="text-green-600 text-sm mt-4">
+                    You’re subscribed 🎉
+                  </p>
+                )}
+
+                {error && (
+                  <p className="text-red-600 text-sm mt-4">
+                    {error}
+                  </p>
+                )}
             </div>
             
             <p className="text-sm text-gray-400 mt-4">

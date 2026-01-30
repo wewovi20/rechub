@@ -1,9 +1,14 @@
-import { Calendar, Clock, MapPin, Users, ExternalLink, Zap, Star, TrendingUp, ArrowRight, Plus } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, ExternalLink, Zap, Star, TrendingUp, ArrowRight, Plus, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import { EventRegistrationModal } from "./event-registration-modal";
 
 export function Events() {
+  const [registrationModalOpen, setRegistrationModalOpen] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<string>("");
+
   const upcomingEvents = [
     {
       title: "AI & Machine Learning Summit",
@@ -212,9 +217,15 @@ export function Events() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <Button className="flex-1 bg-gradient-to-r from-gray-900 to-gray-700 hover:from-gray-800 hover:to-gray-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 group/btn h-12">
+                      <Button
+                        className="flex-1 bg-gradient-to-r from-gray-900 to-gray-700 hover:from-gray-800 hover:to-gray-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 group/btn h-12"
+                        onClick={() => {
+                          setSelectedEvent(event.title);
+                          setRegistrationModalOpen(true);
+                        }}
+                      >
                         Register Now
-                        <ExternalLink className="ml-2 size-4 group-hover/btn:translate-x-1 transition-transform" />
+                        <ArrowRight className="ml-2 size-4 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
                       <Button variant="outline" className="h-12">
                         <Plus className="size-4 mr-2" />
@@ -297,19 +308,20 @@ export function Events() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
+              
                   size="lg" 
                   className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 h-14 px-8 group"
                 >
-                  Subscribe to Calendar
-                  <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
+                  Subscribe to our Newsletter below
+                  <ArrowDown className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button 
+                {/* <Button 
                   variant="outline" 
                   size="lg" 
                   className="h-14 px-8 border-2 border-white text-white hover:bg-white hover:text-gray-900 backdrop-blur-sm transition-all duration-300"
                 >
                   View All Events
-                </Button>
+                </Button> */}
               </div>
               
               <p className="text-sm text-gray-400 mt-6">
@@ -319,6 +331,12 @@ export function Events() {
           </div>
         </div>
       </div>
+
+      <EventRegistrationModal
+        isOpen={registrationModalOpen}
+        onClose={() => setRegistrationModalOpen(false)}
+        eventTitle={selectedEvent}
+      />
     </section>
   );
 }

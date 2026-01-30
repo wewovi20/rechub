@@ -1,8 +1,34 @@
 import { MapPin, Phone, Mail, Github, Linkedin, Twitter, Facebook, ArrowRight, Zap, Users, Rocket, Send, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
 
-export function Footer() {
+export function Footer(e: React.FormEvent) {
+     async function handleSubscribe(e: React.FormEvent) {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    const res = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    if (res.ok) {
+      setSuccess(true);
+      setEmail("");
+    } else {
+      setError("Unable to subscribe. Try again.");
+    }
+
+    setLoading(false);
+  }
+
+    const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
@@ -197,17 +223,32 @@ export function Footer() {
                 </p>
               </div>
               <div className="flex gap-3 max-w-md w-full">
+                <form onSubmit={handleSubscribe} className="flex gap-3">
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="flex-1 px-6 py-4 rounded-xl border-2 border-white/20 bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors backdrop-blur-sm"
+                  className="flex-1 w-full px-6 py-4 rounded-xl border-2 border-white/20 bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors backdrop-blur-sm"
                 />
-                <Button 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 h-auto font-semibold"
-                >
-                  Subscribe
-                  <ArrowRight className="ml-2 size-4" />
-                </Button>
+               
+                <Button type="submit" disabled={loading} className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-4 h-auto font-semibold">
+                {loading ? "Joining..." : "Subscribe"}
+                <ArrowRight className="ml-2 size-4" />
+              </Button>
+                </form>
+
+      {success && (
+        <p className="text-green-600 text-sm mt-4">
+          You’re subscribed 🎉
+        </p>
+      )}
+
+      {error && (
+        <p className="text-red-600 text-sm mt-4">
+          {error}
+        </p>
+      )}
               </div>
             </div>
           </div>
