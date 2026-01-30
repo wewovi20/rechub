@@ -1,4 +1,6 @@
+'use client';
 import { MapPin, Phone, Mail, Clock, ArrowRight, Send, Building, Users, Zap } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -6,7 +8,47 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 
+
+
+
+
 export function Contact() {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  setLoading(true);
+  setError("");
+  setSuccess(false);
+
+  const formData = new FormData(e.currentTarget);
+
+  const payload = {
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    email: formData.get("email"),
+    company: formData.get("company"),
+    interest: formData.get("interest"),
+    message: formData.get("message"),
+  };
+
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+console.log(res.statusText)
+  if (res.ok) {
+    setSuccess(true);
+    e.currentTarget.reset();
+  } else {
+    setError("Something went wrong. Please try again.");
+  }
+
+  setLoading(false);
+}
   const contactInfo = [
     {
       icon: MapPin,
@@ -96,12 +138,14 @@ export function Contact() {
                 </div>
                 <p className="text-muted-foreground">Fill out the form below and our team will get back to you within 24 hours.</p>
               </CardHeader>
+              <form onSubmit={handleSubmit}>
               <CardContent className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-3">
                     <Label htmlFor="firstName" className="text-sm font-semibold">First Name</Label>
                     <Input 
                       id="firstName" 
+                      name="firstName"
                       placeholder="John" 
                       className="h-12 border-2 focus:border-blue-500 transition-colors"
                     />
@@ -110,6 +154,7 @@ export function Contact() {
                     <Label htmlFor="lastName" className="text-sm font-semibold">Last Name</Label>
                     <Input 
                       id="lastName" 
+                      name="lastName"
                       placeholder="Doe" 
                       className="h-12 border-2 focus:border-blue-500 transition-colors"
                     />
@@ -120,6 +165,7 @@ export function Contact() {
                   <Label htmlFor="email" className="text-sm font-semibold">Email Address</Label>
                   <Input 
                     id="email" 
+                    name="email"
                     type="email" 
                     placeholder="john.doe@example.com" 
                     className="h-12 border-2 focus:border-blue-500 transition-colors"
@@ -130,6 +176,7 @@ export function Contact() {
                   <Label htmlFor="company" className="text-sm font-semibold">Company (Optional)</Label>
                   <Input 
                     id="company" 
+                    name="company"
                     placeholder="Your Company" 
                     className="h-12 border-2 focus:border-blue-500 transition-colors"
                   />
@@ -139,6 +186,7 @@ export function Contact() {
                   <Label htmlFor="interest" className="text-sm font-semibold">What brings you here?</Label>
                   <select 
                     id="interest" 
+                    name="interest"
                     className="flex h-12 w-full rounded-lg border-2 border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 transition-colors"
                   >
                     <option value="">Select your interest</option>
@@ -155,18 +203,33 @@ export function Contact() {
                   <Label htmlFor="message" className="text-sm font-semibold">Your Message</Label>
                   <Textarea 
                     id="message" 
+                    name="message"
                     placeholder="Tell us more about your goals and how we can help..."
                     className="min-h-[140px] border-2 focus:border-blue-500 transition-colors resize-none"
                   />
                 </div>
                 
-                <Button 
+             
+                <Button
+                  type="submit"
+                  disabled={loading}
                   className="w-full h-14 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 group font-semibold text-lg"
                 >
-                  Send Message
-                  <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
+                  {loading ? "Sending..." : "Send Message"}
                 </Button>
+                {success && (
+                  <p className="text-green-600 text-sm mt-4 text-center">
+                    Message sent successfully! We’ll get back to you shortly.
+                  </p>
+                )}
+
+                {error && (
+                  <p className="text-red-600 text-sm mt-4 text-center">
+                    {error}
+                  </p>
+                )}
               </CardContent>
+              </form>
             </Card>
           </div>
 
