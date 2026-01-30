@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 
-export function Footer(e: React.FormEvent) {
+export function Footer() {
      async function handleSubscribe(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
